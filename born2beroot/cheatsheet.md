@@ -1,5 +1,6 @@
 # CHEATSHEET
 >This cheatsheet includes the necessary answers and commands according to the evaluation sheet of the Born2BeRoot project of 42. It can be used by both, the evaluator and the evaluatee in order to prepare for the evaluation and quickly checking if everything is working according to the expectations of 42. Of course, the questions and tasks can and will change over time, so there is no guarantee that this is all you need to know/check. If something changes: pull requests are welcome!
+</br>
 
 ## SIMPLE SETUP
 ### How does a virtual machine work?
@@ -13,6 +14,7 @@
 |more user-friendly|not so user-friendly|
 |very stable, less updates|stable, more updates|
 |few packages|huge amount of packages|
+</br>
 
 ## Purpose of Virtual Machines
 ### DEBIAN: Difference between 'aptitude' and 'apt'
@@ -36,6 +38,7 @@
 
 ### Check Distrubution/Operating System
 - run `uname -a`
+</br>
 
 ## USER
 ### Check that user belongs to groups 'sudo' and 'user42'
@@ -62,6 +65,7 @@
 ### Advantages and disadvantages of the password policy
 - Advantages: forces stronger passwords, no '*123456*'
 - Disadvantages: hard to remember, easy to guess for computers ([see here](https://i0.wp.com/www.sapien.com/blog/wp-content/uploads/2020/10/password-strength.png?w=740&ssl=1))
+</br>
 
 ## HOSTNAME AND PARTITIONS
 ### Check hostname (must be login42)
@@ -88,6 +92,7 @@
 - Logical Volume Management, is a storage device management technology that gives users the power to pool and abstract the physical layout of component storage devices for easier and flexible administration.
 - Volumes can be resized *dynamically* as space requirements change and can be *migrated* between physical devices.
 - So you can easily change partitions, add and remove hardware devices for storage and so on ...
+</br>
 
 ## SUDO
 ### Check that 'sudo' is installed
@@ -106,6 +111,7 @@
 ### Check that '/var/log/sudo/' exists and has at least one file
 - You should see a history of the commands used with sudo
 - run one command with sudo and check that it was registered
+</br>
 
 ## UFW
 ### Check that UFW is properly installed
@@ -133,6 +139,7 @@
 1. run `sudo ufw status`
 2. check the number of the **row** you want to delete
 3. run `sudo ufw delete <numberofrow>` for each of the **two** open ports *8080 and 8080 (V6)*
+</br>
 
 ## SSH
 ### Check that SSH is properly installed
@@ -155,6 +162,7 @@
 
 ### Check that SSH is *disabled* for root login
 - open the config file with `sudo nano /etc/ssh/sshd_config` and scroll to `PermitRootLogin`
+</br>
 
 ## SCRIPT MONITORING
 ### How does the script work?
@@ -175,6 +183,7 @@
 - run `sudo systemctl disable cron`
 - restart with `sudo reboot`
 - check `sudo systemctl status cron` to verify it's not running
+</br>
 
 ## BONUS
 ### Check bonus partitions
