@@ -25,7 +25,7 @@
 ||includes apt functionalities|
 ||search function for packages|
 
-### DEBIAN: What is AppArmour?
+### DEBIAN: What is AppArmor?
 - type of *mandatory access control* (MAC)
 - restricts programs to certain resources
 - "prevents applications from turning evil"
@@ -60,7 +60,7 @@
 - run `sudo usermod -aG evaluating <username>`
 
 ### Check if user belongs to group 'evaluating'
-- run `groups`
+- run `sudo groups <new_user>`
 
 ### Advantages and disadvantages of the password policy
 - Advantages: forces stronger passwords, no '*123456*'
@@ -110,7 +110,7 @@
 
 ### Check that '/var/log/sudo/' exists and has at least one file
 - You should see a history of the commands used with sudo
-- run one command with sudo and check that it was registered
+- run one command with sudo and check that it was registered by running `sudo ls /var/log/sudo` and the inner repositories
 </br>
 
 ## UFW
