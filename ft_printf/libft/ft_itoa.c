@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: raweber <raweber@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 09:24:28 by raweber           #+#    #+#             */
-/*   Updated: 2022/05/16 15:57:36 by raweber          ###   ########.fr       */
+/*   Updated: 2022/05/03 14:16:14 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +65,7 @@ char	*ft_itoa(int n)
 	int		len;
 
 	len = ft_intlen(n);
-	str = malloc((len + 1) * sizeof(char));
+	str = malloc(len + 1 * sizeof(char));
 	if (!str)
 		return (NULL);
 	ft_itoa_recursive((long)n, str);
