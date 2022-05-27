@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"libft.h": "c",
+		"__node_handle": "c",
+		"mlx.h": "c"
+	}
+}
