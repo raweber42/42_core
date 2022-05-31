@@ -6,15 +6,11 @@
 /*   By: raweber <raweber@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 18:54:36 by raweber           #+#    #+#             */
-/*   Updated: 2022/05/27 21:11:15 by raweber          ###   ########.fr       */
+/*   Updated: 2022/05/29 19:24:11 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-#include <stdlib.h>
-
-
 
 // Inititalizes a lot of the fdf struct data.
 // Sets default values and starts the mlx engine.

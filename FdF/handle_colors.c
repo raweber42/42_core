@@ -6,32 +6,11 @@
 /*   By: raweber <raweber@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 12:04:33 by raweber           #+#    #+#             */
-/*   Updated: 2022/05/27 09:37:34 by raweber          ###   ########.fr       */
+/*   Updated: 2022/05/31 11:39:12 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-// fills the whole color matrix with the default color
-void	fill_color_matrix_default(t_fdf *data)
-{
-	int	color;
-	int	x;
-	int	y;
-
-	color = data->default_color;
-	y = 0;
-	while (y < data->height)
-	{
-		x = 0;
-		while (x < data->width)
-		{
-			data->color_matrix[y][x] = color;
-			x++;
-		}
-		y++;
-	}
-}
 
 // helper function for skipping whitespace
 static int	is_whitespace(char c)
@@ -57,36 +36,55 @@ static int	get_decimal_value(char c, t_fdf *data)
 	return (i);
 }
 
+// helper function to get the sign of the number
+static int	read_color(const char *str, t_fdf *data)
+{
+	int	color;
+	int	nbrcounter;
+
+	str += 3;
+	color = 0;
+	nbrcounter = 1;
+	while (*str != 0 && *str != 32 && *str != 10 && nbrcounter++ <= 6)
+	{
+		color *= 16;
+		color += get_decimal_value(*str++, data);
+	}
+	return (color);
+}
+
 /* 
 Modified atoi that converts the chars from the map
 into integers but also reads the hex color values
 (if given) and puts them into the color-matrix 
-(by dereferenced value of int* color)
+(by dereferenced value of int* color). If no hex value
+is given by the map, the default color will be assigned.
 */
 int	color_atoi(const char *str, int *color, t_fdf *data)
 {
 	int		result;
-	int		nbrcounter;
+	int		sign;
 
 	result = 0;
+	sign = 1;
 	while (is_whitespace(*str))
 		str++;
+	if (*str == '+' || *str == '-')
+	{
+		if (*str == '-')
+			sign *= -1;
+		str++;
+	}
+	if (!ft_isdigit(*str))
+		ft_error("Error: map contains non-integer values.", data);
 	while (*str > 47 && *str < 58)
 	{
 		result *= 10;
 		result += *str - 48;
 		str++;
 	}
+	*color = data->default_color;
 	if (*str == 44 && *(str + 1) == 48 && *(str + 2) == 120)
-	{	
-		str += 3;
-		*color = 0;
-		nbrcounter = 1;
-		while (*str != 0 && *str != 32 && *str != 10 && nbrcounter++ <= 6)
-		{
-			*color *= 16;
-			*color += get_decimal_value(*str++, data);
-		}
-	}
-	return (result);
+		*color = read_color(str, data);
+	return (sign * result);
 }

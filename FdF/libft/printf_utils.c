@@ -42,11 +42,9 @@ int	process_decimal(int n)
 {
 	long			new;
 	int				length;
-	int				flag;
 
 	new = (long)n;
 	length = 0;
-	flag = 0;
 	if (new < 0)
 	{
 		length += write(1, "-", 1);

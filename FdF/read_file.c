@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 18:54:34 by raweber           #+#    #+#             */
-/*   Updated: 2022/05/27 21:17:45 by raweber          ###   ########.fr       */
+/*   Updated: 2022/05/29 19:34:20 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ all have the same width.
 */
 int	get_width(char *filename, t_fdf *data)
 {
-	int		i;
 	int		fd;
 	char	*str;
 	int		element_count;
@@ -71,7 +70,6 @@ int	get_width(char *filename, t_fdf *data)
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		ft_error("Error while trying to read file.", data);
-	i = 0;
 	str = get_next_line(fd);
 	if (!str)
 		ft_error("Error: Empty file!", data);
@@ -131,7 +129,6 @@ void	read_file(char *file_name, t_fdf *data)
 	fd = open(file_name, O_RDONLY, 0);
 	i = 0;
 	line = get_next_line(fd);
-	fill_color_matrix_default(data);
 	while (line)
 	{
 		fill_matrix(data->z_matrix[i], data->color_matrix[i], line, data);

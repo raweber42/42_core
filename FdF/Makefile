@@ -13,8 +13,6 @@ CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra -g
 
-all: $(NAME)
-
 # $@ is an automatic variable that evaluates to the target of the rule (something.o), 
 # and $< is an automatic variable which evaluates to the first prerequisite (something.c) of the rule. 
 %.o: %.c
@@ -31,7 +29,7 @@ clean:
 	$(MAKE) clean -C libft
 	rm -f $(OBJS)
 
-fclean:
+fclean: clean
 	$(MAKE) fclean -C libft
 	rm -f $(NAME)
 
@@ -39,10 +37,19 @@ re: fclean all
 
 valgrind:
 	valgrind --leak-check=full -s ./$(NAME) test_maps/42.fdf
-#	update here?
 
 leaks:
 	leaks --atExit -- ./$(NAME) test_maps/42.fdf
-#	update here?
 
 .PHONY: all clean fclean re valgrind leaks
+
+#LINUX
+#MINILIBX_LINUX = minilibx-linux/libmlx.a
+
+# all: $(OBJS)
+# 	$(MAKE) -C libft
+# 	$(MAKE) -C minilibx-linux
+# 	$(CC) $(OBJS) -L/usr/lib minilibx-linux/libmlx.a libft/libft.a -lXext -lX11 -lm -lz -o $(NAME)
+
+# %.o: %.c
+# 	$(CC) -Wall -Wextra -Werror -I/usr/include -Iminilibx-linux -c $< -o $@

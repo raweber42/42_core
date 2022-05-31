@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 15:30:26 by raweber           #+#    #+#             */
-/*   Updated: 2022/05/27 21:23:51 by raweber          ###   ########.fr       */
+/*   Updated: 2022/05/29 19:34:47 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	draw(t_fdf *data)
 		mlx_destroy_image(data->mlx_ptr, data->mlx_img);
 		data->mlx_img = mlx_new_image(data->mlx_ptr, \
 				data->win_width, data->win_height);
-	}	
+	}
 	y = 0;
 	while (y < data->height)
 	{
