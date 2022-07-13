@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_export.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raweber <raweber@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 16:10:04 by raweber           #+#    #+#             */
-/*   Updated: 2022/07/10 17:31:03 by raweber          ###   ########.fr       */
+/*   Updated: 2022/07/11 12:27:43 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,36 +225,36 @@ void	builtin_export(t_cmd_struct *cmd_struct)
 		export_with_arguments(cmd_struct);
 }
 
-int main(int argc, char **argv, char **envp)
-{
-	t_cmd_struct *cmd_struct;
+// int main(int argc, char **argv, char **envp)
+// {
+// 	t_cmd_struct *cmd_struct;
 	
-	cmd_struct =  malloc(sizeof(t_cmd_struct));
-	cmd_struct->command_splitted =  malloc(2 * sizeof(char *));
-	cmd_struct->command_splitted[0] = "export";
-	cmd_struct->command_splitted[1] = "TESTVAR=testvar";
-	cmd_struct->cur_env_size = get_env_size(envp) * 2;
-	cmd_struct->env_clone = copy_env(envp, cmd_struct);
+// 	cmd_struct =  malloc(sizeof(t_cmd_struct));
+// 	cmd_struct->command_splitted =  malloc(2 * sizeof(char *));
+// 	cmd_struct->command_splitted[0] = "export";
+// 	cmd_struct->command_splitted[1] = "TESTVAR=testvar";
+// 	cmd_struct->cur_env_size = get_env_size(envp) * 2;
+// 	cmd_struct->env_clone = copy_env(envp, cmd_struct);
 	
-	builtin_export(cmd_struct);
-	// cmd_struct->command_splitted[1] = NULL;
-	// builtin_export(cmd_struct);
-	//printf("HERE\n");
+// 	builtin_export(cmd_struct);
+// 	// cmd_struct->command_splitted[1] = NULL;
+// 	// builtin_export(cmd_struct);
+// 	//printf("HERE\n");
 	
-	// int i = 0;
-	// while (cmd_struct->env_clone[i])
-	// {
-	// 	printf("%s\n", cmd_struct->env_clone[i++]);
-	// }
+// 	// int i = 0;
+// 	// while (cmd_struct->env_clone[i])
+// 	// {
+// 	// 	printf("%s\n", cmd_struct->env_clone[i++]);
+// 	// }
 	
-	argc = 0;
-	argv = NULL;
+// 	argc = 0;
+// 	argv = NULL;
 
-	free(cmd_struct->command_splitted);
-	int i = 0;
-	while (cmd_struct->env_clone[i])
-		free(cmd_struct->env_clone[i++]);
-	free(cmd_struct->env_clone);
-	free(cmd_struct);
-	return (0);
-}
+// 	free(cmd_struct->command_splitted);
+// 	int i = 0;
+// 	while (cmd_struct->env_clone[i])
+// 		free(cmd_struct->env_clone[i++]);
+// 	free(cmd_struct->env_clone);
+// 	free(cmd_struct);
+// 	return (0);
+// }

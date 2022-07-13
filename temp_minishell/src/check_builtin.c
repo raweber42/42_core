@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_builtin.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raweber <raweber@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 10:30:54 by raweber           #+#    #+#             */
-/*   Updated: 2022/07/10 15:27:46 by raweber          ###   ########.fr       */
+/*   Updated: 2022/07/11 12:27:44 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	check_builtin(t_cmd_struct *cmd_struct)
 	else if (!ft_strncmp(cmd_struct->command_splitted[0], "unset", ft_strlen(cmd_struct->command_splitted[0])))
 	{
 		//run unset
+		builtin_unset(cmd_struct);
 		return (1);
 	}
 	else if (!ft_strncmp(cmd_struct->command_splitted[0], "env", ft_strlen(cmd_struct->command_splitted[0])))
