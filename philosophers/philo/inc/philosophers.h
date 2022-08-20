@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 10:41:02 by raweber           #+#    #+#             */
-/*   Updated: 2022/07/01 11:24:27 by raweber          ###   ########.fr       */
+/*   Updated: 2022/07/01 14:54:03 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,8 @@ typedef struct s_philosophers
 }				t_philosophers;
 
 // main.c
-int		sub_routine(t_philosophers *cur_philosopher, t_philo_rules *rules);
-void	*routine(void *philosopher);
-
+int			sub_routine(t_philosophers *cur_philosopher, t_philo_rules *rules);
+void		*routine(void *philosopher);
 
 // atoi.c 
 int			philo_atoi(const char *str);
@@ -60,18 +59,18 @@ void		wait_or_sleep(long long time, t_philosophers *cur_philosopher);
 void		print_philo(t_philo_rules *rules, int id, char *string);
 int			check_death(t_philosophers *cur_philosopher, t_philo_rules *rules);
 
-
-
 // init.c
 int			init_rules_and_mutex(char **argv, int argc, t_philo_rules *rules);
 int			init_rules(char **argv, int argc, t_philo_rules *rules);
 pthread_t	*init_thread(t_philosophers *philosopher);
-int			init_philosophers(t_philo_rules *rules, t_philosophers **philosophers);
+int			init_philosophers(t_philo_rules *rules,
+				t_philosophers **philosophers);
 int			init_mutex(t_philo_rules *rules);
 
 // clean_up.c
 int			join_threads(t_philo_rules *rules, t_philosophers **philosophers);
-void		destroy_mutex_and_clean(t_philo_rules *rules, t_philosophers **philosophers);
+void		destroy_mutex_and_clean(t_philo_rules *rules,
+				t_philosophers **philosophers);
 void		destroy_mutex(t_philo_rules *rules);
 void		clean_up(t_philo_rules *rules, t_philosophers **philosophers);
 

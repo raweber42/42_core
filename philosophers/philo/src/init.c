@@ -6,12 +6,13 @@
 /*   By: raweber <raweber@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 15:27:29 by raweber           #+#    #+#             */
-/*   Updated: 2022/07/01 13:41:17 by raweber          ###   ########.fr       */
+/*   Updated: 2022/07/01 15:17:54 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philosophers.h"
 
+// helper to safe lines: intializes rules and mutexes
 int	init_rules_and_mutex(char **argv, int argc, t_philo_rules *rules)
 {
 	if (init_rules(argv, argc, rules))
@@ -89,13 +90,12 @@ int	init_philosophers(t_philo_rules *rules, t_philosophers **philosophers)
 		if (i % 2)
 			usleep(50);
 		philosophers[i]->thread = init_thread(philosophers[i]);
-		if (philosophers[i]->thread == NULL)
+		if (philosophers[i++]->thread == NULL)
 		{
 			clean_up(rules, philosophers);
 			printf("Error: Could not initialize philosophers\n");
 			return (1);
 		}
-		i++;
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 10:56:43 by raweber           #+#    #+#             */
-/*   Updated: 2022/07/01 13:58:14 by raweber          ###   ########.fr       */
+/*   Updated: 2022/07/01 14:57:03 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	join_threads(t_philo_rules *rules, t_philosophers **philosophers)
 void	destroy_mutex_and_clean(t_philo_rules *rules,
 		t_philosophers **philosophers)
 {
-	destroy_mutex(rules);	
+	destroy_mutex(rules);
 	clean_up(rules, philosophers);
 }
 
@@ -44,8 +44,11 @@ void	destroy_mutex(t_philo_rules *rules)
 	int	i;
 
 	i = 0;
-	while (i < rules->nbr_philosophers)				 //#########
-		pthread_mutex_destroy(&(rules->forks[i++])); //#########
+	while (i < rules->nbr_philosophers)
+	{	
+		pthread_mutex_destroy(&rules->forks[i]);
+		i++;
+	}
 	pthread_mutex_destroy(&(rules->writing));
 	pthread_mutex_destroy(&(rules->death_mutex));
 }

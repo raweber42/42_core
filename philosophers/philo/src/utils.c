@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raweber <raweber@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 15:23:14 by raweber           #+#    #+#             */
-/*   Updated: 2022/07/01 11:34:35 by raweber          ###   ########.fr       */
+/*   Updated: 2022/08/18 19:38:55 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,13 @@ void	wait_or_sleep(long long time, t_philosophers *cur_philosopher)
 	i = ft_time();
 	while (1)
 	{
-		if ((ft_time() - cur_philosopher->last_meal) > cur_philosopher->rules->time_to_die) // = or >= ???
+		if ((ft_time() - cur_philosopher->last_meal)
+			>= cur_philosopher->rules->time_to_sleep)
 		{
 			print_philo(cur_philosopher->rules, cur_philosopher->id, "died");
+			pthread_mutex_lock(&(cur_philosopher->rules->death_mutex));
 			cur_philosopher->rules->dead_philosopher = 1;
+			pthread_mutex_unlock(&(cur_philosopher->rules->death_mutex));
 			break ;
 		}
 		if ((ft_time() - i) >= (time))
@@ -60,9 +63,11 @@ void	one_philosopher(t_philosophers *cur_philosopher)
 void	print_philo(t_philo_rules *rules, int id, char *string)
 {
 	pthread_mutex_lock(&(rules->writing));
+	pthread_mutex_lock(&(rules->death_mutex));
 	if (rules->dead_philosopher == 0)
 		printf("%lld %d %s\n", (ft_time() - rules->start_time),
 			(id + 1), string);
+	pthread_mutex_unlock(&(rules->death_mutex));
 	pthread_mutex_unlock(&(rules->writing));
 }
 
