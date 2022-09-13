@@ -2,7 +2,7 @@ GREEN = \033[0;32m
 RED = \033[0;31m
 UNDO_COL = \033[0m
 
-NAME = shrubshrub
+NAME = formsformsforms
 SRC_DIR = src/
 
 CC = c++
