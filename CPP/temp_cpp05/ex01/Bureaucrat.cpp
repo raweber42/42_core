@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 09:25:52 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/11 18:33:15 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/13 09:23:56 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ Bureaucrat::Bureaucrat(std::string new_name, size_t grade) : _name(new_name) {
 
 Bureaucrat::~Bureaucrat(void) {
 	
-	std::cout << "Bureaucrat destructor called" << std::endl;
+	// std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &src) {
 	
 	*this = src;
-	std::cout << "Bureaucrat copy constructor called" << std::endl;
+	// std::cout << "Bureaucrat copy constructor called" << std::endl;
 }
 
 //--------------FUNCTIONALS------------------//
@@ -96,6 +96,7 @@ void Bureaucrat::signForm(Form form) {
 	}
 	catch (const std::exception &e) {
 		std::cout << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+		return ;
 	}
 	
 	std::cout << this->getName() << " signed " << form.getName() << std::endl;

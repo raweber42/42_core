@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 17:35:37 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/11 18:28:25 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/13 09:21:24 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ Form::Form(std::string name, int to_sign, int to_exec) : _name(name), _grade_to_
 
 Form::~Form(void) {
 	
-	std::cout << "Form destructor called" << std::endl;
+	// std::cout << "Form destructor called" << std::endl;
 }
 
 Form::Form(Form const &src) : _name(src._name), _grade_to_sign(src._grade_to_sign), _grade_to_exec(src._grade_to_exec), _signed(0) {
 	
 	*this = src;
-	std::cout << "Form copy constructor called" << std::endl;
+	// std::cout << "Form copy constructor called" << std::endl;
 }
 
 //--------------FUNCTIONALS------------------//

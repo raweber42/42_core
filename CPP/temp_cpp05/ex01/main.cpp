@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 09:25:57 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/11 18:39:20 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/13 11:30:07 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,60 @@
 
 int main(void)
 {
-	Bureaucrat ralf("Ralf", 2);
-	Form form1("FORM1", 1, 65);
+	Bureaucrat ralf("Ralf", 50);
+	Form form1("FORM1", 50, 50);
+
+	std::cout << "\n### " << ralf.getName() << " trying to sign the form " << form1.getName() << ":" << std::endl;
 	try {
-		form1.beSigned(ralf);
+		ralf.signForm(form1);
 	}
 	catch (const std::exception &e) {
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
-	// std::cout << form1 << std::endl;
-}
+	std::cout << std::endl;
 
-// NOW: THOROUGH TESTING!!!
+
+	Form form2("FORM2", 1, 50);
+	std::cout << "\n### Check IF " << ralf.getName() << " COULD sign the form " << form2.getName() << ":" << std::endl;
+	try {
+		form2.beSigned(ralf);
+	}
+	catch (const std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	
+	
+	Form form3("FORM3", 150, 50);
+	std::cout << "\n### " << ralf.getName() << " trying to sign the form " << form3.getName() << ":" << std::endl;
+	try {
+		ralf.signForm(form3);
+	}
+	catch (const std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+
+	
+	std::cout << "\nTRY INITIALIZING FORM 4 WITH TO_SIGN=0" << std::endl;
+	try {
+		Form form4("FORM4", 0, 150);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+
+	std::cout << "\nTRY INITIALIZING FORM 5 WITH TO_SIGN=151" << std::endl;
+	try {
+		Form form5("FORM5", 151, 150);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+}
 
 
 
