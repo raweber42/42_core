@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 09:25:55 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/13 13:03:39 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/13 15:46:34 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Bureaucrat {
 		void				incrementGrade(void);
 		void				decrementGrade(void);
 		void				signForm(AForm &form);
-
+		void				executeForm(AForm const & form);
 		
 		//--------Exception classes-------------------//
 		class GradeTooHighException : public std::exception {

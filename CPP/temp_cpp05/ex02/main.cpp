@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 09:25:57 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/13 13:06:46 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/13 15:51:37 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,13 @@
 int main(void)
 {
 	Bureaucrat ralf("Ralf", 150);
-	ShrubberyCreationForm shrubbery("a_TREE_in_a_file");
+	Bureaucrat mr_trump("Mr Trump", 1);
 
-
-	std::cout << "\n### " << ralf.getName() << " trying to sign the form " << shrubbery.getName() << ":" << std::endl;
+	//---------------------SHRUBBERY-----------------------------------------//
+	
+	ShrubberyCreationForm shrubbery("boxwood_form");
+	std::cout <<  "\n### LET RALF TRY TO SIGN THIS!" << std::endl;
+	std::cout << "### " << ralf.getName() << " trying to sign the form " << shrubbery.getName() << ":" << std::endl;
 	try {
 		ralf.signForm(shrubbery);
 	}
@@ -30,7 +33,7 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-
+	std::cout <<  "### LET RALF TRY TO EXECUTE THIS!" << std::endl;
 	std::cout << "\n### " << ralf.getName() << " trying to execute the form " << shrubbery.getName() << ":" << std::endl;
 	try {
 		shrubbery.execute(ralf);
@@ -40,119 +43,94 @@ int main(void)
 	}
 	std::cout << std::endl;
 
+	std::cout <<  "### LET THE PRESIDENT TRY TO SIGN THIS!" << std::endl;
+	std::cout << "\n### " << mr_trump.getName() << " trying to sign the form " << shrubbery.getName() << ":" << std::endl;
+	try {
+		mr_trump.signForm(shrubbery);
+	}
+	catch (const std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << std::endl;
 
-	// Form form2("FORM2", 1, 50);
-	// std::cout << "\n### Check IF " << ralf.getName() << " COULD sign the form " << form2.getName() << ":" << std::endl;
-	// try {
-	// 	form2.beSigned(ralf);
-	// }
-	// catch (const std::exception &e) {
-	// 	std::cerr << e.what() << std::endl;
-	// }
-	// std::cout << std::endl;
-	
-	
-	// Form form3("FORM3", 150, 50);
-	// std::cout << "\n### " << ralf.getName() << " trying to sign the form " << form3.getName() << ":" << std::endl;
-	// try {
-	// 	ralf.signForm(form3);
-	// }
-	// catch (const std::exception &e) {
-	// 	std::cerr << e.what() << std::endl;
-	// }
-	// std::cout << std::endl;
-
-	
-	// std::cout << "\nTRY INITIALIZING FORM 4 WITH TO_SIGN=0" << std::endl;
-	// try {
-	// 	Form form4("FORM4", 0, 150);
-	// }
-	// catch (const std::exception &e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
+	std::cout <<  "### LET THE PRESIDENT TRY TO EXECUTE THIS!" << std::endl;
+	std::cout << "\n### " << mr_trump.getName() << " trying to execute the form " << shrubbery.getName() << ":" << std::endl;
+	try {
+		shrubbery.execute(mr_trump);
+	}
+	catch (const std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << std::endl;
 
 
-	// std::cout << "\nTRY INITIALIZING FORM 5 WITH TO_SIGN=151" << std::endl;
-	// try {
-	// 	Form form5("FORM5", 151, 150);
-	// }
-	// catch (const std::exception &e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
+	//---------------------PRESIDENTIAL PARDON-----------------------------------------//
+	std::cout << "-------------------------------------------------------------------------" << std::endl;	
+	PresidentialPardonForm presidential("Executive Order No 1");
+
+	std::cout << "\n### PREPARING SIGNED FORM FOR EXECUTIVE ORDER..." << std::endl;
+		std::cout << "\n### " << mr_trump.getName() << " trying to sign the form " << presidential.getName() << ":" << std::endl;
+	try {
+		mr_trump.signForm(presidential);
+	}
+	catch (const std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+
+	std::cout <<  "### LET RALF TRY TO EXECUTE THIS!" << std::endl;
+	std::cout << "\n### " << ralf.getName() << " trying to execute the form " << presidential.getName() << ":" << std::endl;
+	try {
+		presidential.execute(ralf);
+	}
+	catch (const std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+
+	std::cout <<  "### LET THE PRESIDENT TRY TO EXECUTE THIS!" << std::endl;
+	std::cout << "\n### " << mr_trump.getName() << " trying to execute the form " << presidential.getName() << ":" << std::endl;
+	try {
+		presidential.execute(mr_trump);
+	}
+	catch (const std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+
+	//---------------------ROBOTOMY-----------------------------------------//
+	std::cout << "-------------------------------------------------------------------------" << std::endl;	
+	RobotomyRequestForm robotomy("Cook");
+
+	std::cout << "### PREPARING SIGNED FORM FOR EXECUTIVE ORDER..." << std::endl;
+		std::cout << "\n### " << mr_trump.getName() << " trying to sign the form " << robotomy.getName() << ":" << std::endl;
+	try {
+		mr_trump.signForm(robotomy);
+	}
+	catch (const std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+
+	std::cout <<  "### LET RALF TRY TO EXECUTE THIS!" << std::endl;
+	std::cout << "\n### " << ralf.getName() << " trying to execute the form " << robotomy.getName() << ":" << std::endl;
+	try {
+		// robotomy.execute(ralf);
+		ralf.executeForm(robotomy);
+	}
+	catch (const std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+
+	std::cout <<  "### LET THE PRESIDENT TRY TO EXECUTE THIS!" << std::endl;
+	std::cout << "\n### " << mr_trump.getName() << " trying to execute the form " << robotomy.getName() << ":" << std::endl;
+	try {
+		// robotomy.execute(mr_trump);
+		mr_trump.executeForm(robotomy);
+	}
+	catch (const std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << std::endl;
 }
-
-
-
-// int main(void)
-// {
-// 	Bureaucrat ted("Ted", 150);
-// 	Bureaucrat lilly("Lilly", 1);
-// 	Bureaucrat marshall("Marshall", 75);
-	
-// 	std::cout << "\nTRY INITIALIZING BARNEY WITH GRADE 0" << std::endl;
-// 	try {
-// 		Bureaucrat barney("barney", 0);
-// 	}
-// 	catch (Bureaucrat::GradeTooHighException &e)
-// 	{
-// 		std::cerr << e.what() << std::endl;
-// 	}
-
-
-// 	std::cout << "\nTRY INITIALIZING BARNEY WITH GRADE 151" << std::endl;
-// 	try {
-// 		Bureaucrat barney("barney", 151);
-// 	}
-// 	catch (Bureaucrat::GradeTooLowException &e)
-// 	{
-// 		std::cerr << e.what() << std::endl;
-// 	}
-
-
-// 	std::cout << "\nTRY DECREMENTING TED" << std::endl;
-// 	try {
-// 		ted.decrementGrade();
-// 	}
-// 	catch (Bureaucrat::GradeTooLowException &e)
-// 	{
-// 		std::cerr << e.what() << std::endl;
-// 	}
-// 	std::cout << "Ted now has the grade: " << ted.getGrade() << std::endl;
-
-	
-// 	std::cout << "\nTRY INCREMENTING LILLY" << std::endl;
-// 	try {
-// 		lilly.incrementGrade();
-// 	}
-// 	catch (Bureaucrat::GradeTooHighException &e)
-// 	{
-// 		std::cerr << e.what() << std::endl;
-// 	}
-// 	std::cout << "Lilly now has the grade: " << lilly.getGrade() << std::endl;
-
-
-// 	std::cout << "\nTRY INCREMENTING MARSHALL" << std::endl;
-// 	try {
-// 		marshall.incrementGrade();
-// 	}
-// 	catch (Bureaucrat::GradeTooHighException &e)
-// 	{
-// 		std::cerr << e.what() << std::endl;
-// 	}
-// 	std::cout << "Marshall now has the grade: " << marshall.getGrade() << std::endl;
-
-
-// 	std::cout << "\nTRY DECREMENTING MARSHALL" << std::endl;
-// 	try {
-// 		marshall.decrementGrade();
-// 	}
-// 	catch (Bureaucrat::GradeTooLowException &e)
-// 	{
-// 		std::cerr << e.what() << std::endl;
-// 	}
-// 	std::cout << "Marshall now has the grade: " << marshall.getGrade() << "\n" << std::endl;
-
-// 	return (0);
-// }

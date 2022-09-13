@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 11:55:32 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/13 12:52:15 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/13 15:41:59 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,17 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm c
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 	
-	if (this->getIfSigned() == 0)
-	{
-		throw FormNotSignedException();
-		return ;
-	}
-	else if (this->getToExec() < executor.getGrade())
-	{
-		throw GradeTooLowException();
-		return ;
-	}
+	this->checkIfAbleExec(executor);
+	// if (this->getIfSigned() == 0)
+	// {
+	// 	throw FormNotSignedException();
+	// 	return ;
+	// }
+	// else if (this->getToExec() < executor.getGrade())
+	// {
+	// 	throw GradeTooLowException();
+	// 	return ;
+	// }
 	std::string filename = this->_target + "_shrubbery";
 	std::ofstream outfile (filename);
 
@@ -88,5 +89,6 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 	outfile << std::endl;
 
 	outfile.close();
+	std::cout << "Successfully created file " << filename << "!" << std::endl;
 }
 

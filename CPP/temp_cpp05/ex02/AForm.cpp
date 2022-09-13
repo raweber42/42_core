@@ -77,6 +77,21 @@ void AForm::setSigned(int status) {
 		return;
 }
 
+void AForm::checkIfAbleExec(Bureaucrat const & executor) const {
+
+	if (this->getIfSigned() == 0)
+	{
+		throw FormNotSignedException();
+		return ;
+	}
+	else if (this->getToExec() < executor.getGrade())
+	{
+		throw GradeTooLowException();
+		return ;
+	}
+}
+
+
 
 
 //--------------OPERATOR OVERLOAD------------------//

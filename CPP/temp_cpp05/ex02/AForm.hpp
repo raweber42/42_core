@@ -34,6 +34,7 @@ class AForm {
 		int 				getIfSigned(void) const;
 		void				beSigned(Bureaucrat guy);
 		void 				setSigned(int status);
+		void				checkIfAbleExec(Bureaucrat const & executor) const;
 		virtual void		execute(Bureaucrat const & executor) const = 0;
 	
 		//--------Exception classes-------------------//
