@@ -6,15 +6,16 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 14:40:49 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/09 11:35:00 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/21 08:51:19 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+#include "ClapTrap.hpp"
 
 //--------------CONSTRUCTORS/DESTRUCTOR------------------//
 
-FragTrap::FragTrap(void) {
+FragTrap::FragTrap(void) : ClapTrap() {
 
 	this->set_hit_points();
 	this->set_energy_points();
@@ -22,7 +23,7 @@ FragTrap::FragTrap(void) {
 	std::cout << "FragTrap default constructor called" << std::endl;
 }
 
-FragTrap::FragTrap(std::string name) {
+FragTrap::FragTrap(std::string name) : ClapTrap() {
 
 	this->_name = name;
 	this->set_hit_points();
@@ -31,7 +32,7 @@ FragTrap::FragTrap(std::string name) {
 	std::cout << "FragTrap constructor called with name: " << name << std::endl;
 }
 
-FragTrap::FragTrap(FragTrap const &src) {
+FragTrap::FragTrap(FragTrap const &src) : ClapTrap() {
 	
 	this->_name = src.get_name();
 	this->_hit_points = src.get_hit_points();

@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 14:40:49 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/09 10:42:19 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/21 08:42:06 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //--------------CONSTRUCTORS/DESTRUCTOR------------------//
 
-ScavTrap::ScavTrap(void) {
+ScavTrap::ScavTrap(void) : ClapTrap() {
 
 	this->_hit_points = 100;
 	this->_energy_points = 50;
@@ -22,7 +22,7 @@ ScavTrap::ScavTrap(void) {
 	std::cout << "ScavTrap default constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) {
+ScavTrap::ScavTrap(std::string name) : ClapTrap() {
 
 	this->_name = name;
 	this->_hit_points = 100;
@@ -31,7 +31,7 @@ ScavTrap::ScavTrap(std::string name) {
 	std::cout << "ScavTrap constructor called with name: " << name << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &src) {
+ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap() {
 	
 	this->_name = src.get_name();
 	this->_hit_points = src.get_hit_points();

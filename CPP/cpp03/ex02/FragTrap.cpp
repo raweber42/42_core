@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 14:40:49 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/09 10:46:43 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/21 08:36:27 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //--------------CONSTRUCTORS/DESTRUCTOR------------------//
 
-FragTrap::FragTrap(void) {
+FragTrap::FragTrap(void) : ClapTrap() {
 
 	this->_hit_points = 100;
 	this->_energy_points = 100;
@@ -22,7 +22,7 @@ FragTrap::FragTrap(void) {
 	std::cout << "FragTrap default constructor called" << std::endl;
 }
 
-FragTrap::FragTrap(std::string name) {
+FragTrap::FragTrap(std::string name) : ClapTrap() {
 
 	this->_name = name;
 	this->_hit_points = 100;
@@ -31,7 +31,7 @@ FragTrap::FragTrap(std::string name) {
 	std::cout << "FragTrap constructor called with name: " << name << std::endl;
 }
 
-FragTrap::FragTrap(FragTrap const &src) {
+FragTrap::FragTrap(FragTrap const &src) : ClapTrap() {
 	
 	this->_name = src.get_name();
 	this->_hit_points = src.get_hit_points();

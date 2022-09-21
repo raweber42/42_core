@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 10:29:36 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/08 15:47:32 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/21 08:31:13 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main(void)
 	std::cout << std::endl;
 	
 	Anakin.beRepaired(2);
-	Rae.beRepaired(0);
+	Rae.beRepaired(10);
 	
 	std::cout << std::endl;
 	std::cout << "\x1B[31m" << "#### STATUS ####" << std::endl;
@@ -60,5 +60,4 @@ int main(void)
 	Anakin.guardGate();
 	Rae.guardGate();
 	std::cout << std::endl;
-
 }
