@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:36:18 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/10 09:36:07 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/21 09:33:22 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Cat::Cat(void) {
 	this->brain = new Brain();
 }
 
-Cat::Cat(Cat const &src) {
+Cat::Cat(Cat const &src) : AAnimal() {
 	
 	std::cout << "Cat copy constructor called" << std::endl;
 	*this = src;

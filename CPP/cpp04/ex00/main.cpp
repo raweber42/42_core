@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:34:05 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/10 07:50:46 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/21 09:25:03 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int main()
 	std::cout << std::endl;
 	std::cout << "### ANIMALS MAKING SOUNDS ###" << std::endl;
 	std::cout << "Dog: ";
-	i->makeSound();
-	std::cout << "Cat: ";
 	j->makeSound();
+	std::cout << "Cat: ";
+	i->makeSound();
 	std::cout << "Wrong Cat: ";
 	wrong_i->makeSound();
 	std::cout << "Animal: ";

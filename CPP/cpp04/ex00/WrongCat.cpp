@@ -1,57 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongWrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/09 14:36:22 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/10 09:43:26 by raweber          ###   ########.fr       */
+/*   Created: 2022/09/09 14:36:18 by raweber           #+#    #+#             */
+/*   Updated: 2022/09/09 15:22:45 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 #include <iostream>
 
 //---------------constructors/destructor-------------------------//
-Dog::Dog(void) {
+WrongCat::WrongCat(void) {
 	
-	std::cout << "Dog default constructor called" << std::endl;
 	this->setType();
-	this->brain = new Brain();
+	std::cout << "WrongCat default constructor called" << std::endl;
 }
 
-Dog::Dog(Dog const &src) {
+WrongCat::WrongCat(WrongCat const &src) : WrongAnimal() {
 	
-	std::cout << "Dog copy constructor called" << std::endl;
+	std::cout << "WrongCat copy constructor called" << std::endl;
 	*this = src;
 }
 
-Dog::~Dog(void) {
+WrongCat::~WrongCat(void) {
 	
-	delete this->brain;
-	std::cout << "Dog destructor called" << std::endl;
+	std::cout << "WrongCat destructor called" << std::endl;
 }
 
-Dog & Dog::operator=(Dog const &rhs) {
+WrongCat & WrongCat::operator=(WrongCat const &rhs) {
 
 	this->_type = rhs._type;
 	return (*this);
 }
 
-//--------------functionals-----------------//
+//-------------------functionals-------------------------//
+ 
+void WrongCat::setType(void) {
 
-void Dog::setType(void) {
-
-	this->_type = "Dog";
+	this->_type = "WrongCat";
 }
 
-void Dog::makeSound(void) const {
+void WrongCat::makeSound(void) const {
 	
-	std::cout << "WRAFFFFFFF" << std::endl;
-}
-
-std::string	Dog::getIdea(int i) const {
-
-	return(this->brain->getIdea(i));
+	std::cout << "MEOWWWWW" << std::endl;
 }

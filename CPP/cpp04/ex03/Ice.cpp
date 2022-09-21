@@ -1,57 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/09 14:36:22 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/10 09:43:26 by raweber          ###   ########.fr       */
+/*   Created: 2022/09/10 11:33:30 by raweber           #+#    #+#             */
+/*   Updated: 2022/09/21 09:35:40 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Ice.hpp"
 #include <iostream>
 
 //---------------constructors/destructor-------------------------//
-Dog::Dog(void) {
+Ice::Ice(void) {
 	
-	std::cout << "Dog default constructor called" << std::endl;
-	this->setType();
-	this->brain = new Brain();
+	std::cout << "Ice default constructor called" << std::endl;
+	this->setType("ice");
 }
 
-Dog::Dog(Dog const &src) {
+Ice::Ice(Ice const &src) : AMateria() {
 	
-	std::cout << "Dog copy constructor called" << std::endl;
+	std::cout << "Ice copy constructor called" << std::endl;
 	*this = src;
 }
 
-Dog::~Dog(void) {
+Ice::~Ice(void) {
 	
-	delete this->brain;
-	std::cout << "Dog destructor called" << std::endl;
+	std::cout << "Ice destructor called" << std::endl;
 }
 
-Dog & Dog::operator=(Dog const &rhs) {
+Ice & Ice::operator=(Ice const &rhs) {
 
-	this->_type = rhs._type;
+	this->setType(rhs.getType());
 	return (*this);
 }
 
 //--------------functionals-----------------//
 
-void Dog::setType(void) {
+Ice *Ice::clone() const {
 
-	this->_type = "Dog";
+	return (new Ice());
 }
 
-void Dog::makeSound(void) const {
-	
-	std::cout << "WRAFFFFFFF" << std::endl;
-}
+void	Ice::use(ICharacter& target) {
 
-std::string	Dog::getIdea(int i) const {
-
-	return(this->brain->getIdea(i));
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

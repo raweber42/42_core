@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongWrongCat.cpp                                       :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:36:18 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/09 15:22:45 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/21 09:30:25 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "Cat.hpp"
+#include "Animal.hpp"
 #include <iostream>
 
 //---------------constructors/destructor-------------------------//
-WrongCat::WrongCat(void) {
+Cat::Cat(void) {
 	
+	std::cout << "Cat default constructor called" << std::endl;
 	this->setType();
-	std::cout << "WrongCat default constructor called" << std::endl;
+	this->brain = new Brain();
 }
 
-WrongCat::WrongCat(WrongCat const &src) {
+Cat::Cat(Cat const &src) : Animal() {
 	
-	std::cout << "WrongCat copy constructor called" << std::endl;
+	std::cout << "Cat copy constructor called" << std::endl;
 	*this = src;
 }
 
-WrongCat::~WrongCat(void) {
+Cat::~Cat(void) {
 	
-	std::cout << "WrongCat destructor called" << std::endl;
+	delete this->brain;
+	std::cout << "Cat destructor called" << std::endl;
 }
 
-WrongCat & WrongCat::operator=(WrongCat const &rhs) {
+Cat & Cat::operator=(Cat const &rhs) {
 
 	this->_type = rhs._type;
 	return (*this);
@@ -39,12 +42,17 @@ WrongCat & WrongCat::operator=(WrongCat const &rhs) {
 
 //-------------------functionals-------------------------//
  
-void WrongCat::setType(void) {
+void Cat::setType(void) {
 
-	this->_type = "WrongCat";
+	this->_type = "Cat";
 }
 
-void WrongCat::makeSound(void) const {
+void Cat::makeSound(void) const {
 	
 	std::cout << "MEOWWWWW" << std::endl;
+}
+
+std::string	Cat::getIdea(int i) const {
+
+	return(this->brain->getIdea(i));
 }

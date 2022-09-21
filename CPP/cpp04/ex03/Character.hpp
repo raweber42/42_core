@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 12:04:48 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/10 15:53:05 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/21 09:36:19 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Character : public ICharacter {
 
 	public:
 		Character(void);
-		Character(std::string name);
+		Character(std::string new_name);
 		Character(Character const &src);
 		~Character(void);
 		Character & operator=(Character const &rhs);

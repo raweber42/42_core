@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 11:19:36 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/10 15:51:35 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/21 09:37:24 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class AMateria {
 		virtual ~AMateria(void);
 		AMateria & operator=(AMateria const &rhs);
 	
-		AMateria(std::string const & type);
+		AMateria(std::string const & new_type);
 		std::string const & getType() const;
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);

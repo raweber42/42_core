@@ -1,50 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/10 11:33:30 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/10 15:59:25 by raweber          ###   ########.fr       */
+/*   Created: 2022/09/09 14:36:22 by raweber           #+#    #+#             */
+/*   Updated: 2022/09/21 09:15:55 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+#include "Dog.hpp"
 #include <iostream>
 
 //---------------constructors/destructor-------------------------//
-Ice::Ice(void) {
+Dog::Dog(void) {
 	
-	std::cout << "Ice default constructor called" << std::endl;
-	this->setType("ice");
+	this->setType();
+	std::cout << "Dog default constructor called" << std::endl;
 }
 
-Ice::Ice(Ice const &src) {
+Dog::Dog(Dog const &src) : Animal() {
 	
-	std::cout << "Ice copy constructor called" << std::endl;
+	std::cout << "Dog copy constructor called" << std::endl;
 	*this = src;
 }
 
-Ice::~Ice(void) {
+Dog::~Dog(void) {
 	
-	std::cout << "Ice destructor called" << std::endl;
+	std::cout << "Dog destructor called" << std::endl;
 }
 
-Ice & Ice::operator=(Ice const &rhs) {
+Dog & Dog::operator=(Dog const &rhs) {
 
-	this->setType(rhs.getType());
+	this->_type = rhs._type;
 	return (*this);
 }
 
 //--------------functionals-----------------//
 
-Ice *Ice::clone() const {
+void Dog::setType(void) {
 
-	return (new Ice());
+	this->_type = "Dog";
 }
 
-void	Ice::use(ICharacter& target) {
-
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+void Dog::makeSound(void) const {
+	
+	std::cout << "WRAFFFFFFF" << std::endl;
 }

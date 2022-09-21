@@ -1,50 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/10 11:33:30 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/11 08:36:19 by raweber          ###   ########.fr       */
+/*   Created: 2022/09/09 14:36:22 by raweber           #+#    #+#             */
+/*   Updated: 2022/09/21 09:30:35 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
+#include "Dog.hpp"
 #include <iostream>
 
 //---------------constructors/destructor-------------------------//
-Cure::Cure(void) {
+Dog::Dog(void) {
 	
-	std::cout << "Cure default constructor called" << std::endl;
-	this->setType("cure");
+	std::cout << "Dog default constructor called" << std::endl;
+	this->setType();
+	this->brain = new Brain();
 }
 
-Cure::Cure(Cure const &src) {
+Dog::Dog(Dog const &src) : Animal() {
 	
-	std::cout << "Cure copy constructor called" << std::endl;
+	std::cout << "Dog copy constructor called" << std::endl;
 	*this = src;
 }
 
-Cure::~Cure(void) {
+Dog::~Dog(void) {
 	
-	std::cout << "Cure destructor called" << std::endl;
+	delete this->brain;
+	std::cout << "Dog destructor called" << std::endl;
 }
 
-Cure & Cure::operator=(Cure const &rhs) {
+Dog & Dog::operator=(Dog const &rhs) {
 
-	this->setType(rhs.getType());
+	this->_type = rhs._type;
 	return (*this);
 }
 
 //--------------functionals-----------------//
 
-Cure *Cure::clone() const {
+void Dog::setType(void) {
 
-	return (new Cure());
+	this->_type = "Dog";
 }
 
-void	Cure::use(ICharacter& target) {
+void Dog::makeSound(void) const {
+	
+	std::cout << "WRAFFFFFFF" << std::endl;
+}
 
-	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+std::string	Dog::getIdea(int i) const {
+
+	return(this->brain->getIdea(i));
 }

@@ -1,50 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/09 14:36:22 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/09 16:06:26 by raweber          ###   ########.fr       */
+/*   Created: 2022/09/09 14:36:18 by raweber           #+#    #+#             */
+/*   Updated: 2022/09/21 09:15:42 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Cat.hpp"
+#include "Animal.hpp"
 #include <iostream>
 
 //---------------constructors/destructor-------------------------//
-Dog::Dog(void) {
+Cat::Cat(void) {
 	
 	this->setType();
-	std::cout << "Dog default constructor called" << std::endl;
+	std::cout << "Cat default constructor called" << std::endl;
 }
 
-Dog::Dog(Dog const &src) {
+Cat::Cat(Cat const &src) : Animal() {
 	
-	std::cout << "Dog copy constructor called" << std::endl;
+	std::cout << "Cat copy constructor called" << std::endl;
 	*this = src;
 }
 
-Dog::~Dog(void) {
+Cat::~Cat(void) {
 	
-	std::cout << "Dog destructor called" << std::endl;
+	std::cout << "Cat destructor called" << std::endl;
 }
 
-Dog & Dog::operator=(Dog const &rhs) {
+Cat & Cat::operator=(Cat const &rhs) {
 
 	this->_type = rhs._type;
 	return (*this);
 }
 
-//--------------functionals-----------------//
+//-------------------functionals-------------------------//
+ 
+void Cat::setType(void) {
 
-void Dog::setType(void) {
-
-	this->_type = "Dog";
+	this->_type = "Cat";
 }
 
-void Dog::makeSound(void) const {
+void Cat::makeSound(void) const {
 	
-	std::cout << "WRAFFFFFFF" << std::endl;
+	std::cout << "MEOWWWWW" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:35:54 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/09 16:10:46 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/21 09:29:30 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class WrongAnimal {
 	public:
 		WrongAnimal(void);
 		WrongAnimal(WrongAnimal const &src);
-		~WrongAnimal(void);
+		virtual ~WrongAnimal(void);
 
 		WrongAnimal & operator=(WrongAnimal const &rhs);
 

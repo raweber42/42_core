@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 12:04:31 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/11 09:11:52 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/21 09:36:39 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ Character::Character(void) {
 	std::cout << "Character default constructor called" << std::endl;
 }
 
-Character::Character(std::string name) {
+Character::Character(std::string new_name) {
 	
-	this->setName(name);
+	this->setName(new_name);
 	for (int i = 0; i < 4; i++)
 		this->inventory[i] = NULL;
 	std::cout << "Character constructor called with name: " << this->getName() << std::endl;

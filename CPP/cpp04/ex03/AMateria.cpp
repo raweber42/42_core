@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 11:36:52 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/11 08:37:56 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/21 09:37:31 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ AMateria::AMateria(void) {
 	std::cout << "AMateria default constructor called" << std::endl;
 }
 
-AMateria::AMateria(std::string const & type) {
+AMateria::AMateria(std::string const & new_type) {
 
-	this->setType(type);
+	this->setType(new_type);
 	std::cout << "AMateria constructor called with name: " << this->type << std::endl;
 }
 
