@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 14:50:57 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/16 17:02:51 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/23 12:12:04 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ class Array {
 
 		Array & operator=(Array const &rhs) {
 			
-			delete [] this->_arr;
+			if (this->_arr)
+				delete [] this->_arr;
 			this->_arr = new T[rhs.size()];
 			this->_size = rhs._size;
 			for (unsigned int i = 0; i < this->_size; i++)
@@ -35,7 +36,7 @@ class Array {
 		};
 		T & operator[](unsigned int index) {
 			
-			if (index < 0 || index > _size - 1)
+			if (index > _size - 1)
 				throw OutOfBoundException();
 			return (this->_arr[index]);
 		}
@@ -51,7 +52,7 @@ class Array {
 		};
 
 	private:
-		T		*_arr; // right so?
+		T		*_arr;
 		size_t	_size;
 };
 
