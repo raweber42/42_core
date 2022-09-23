@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 17:35:39 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/11 18:39:07 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/21 12:16:44 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ class Form {
 		const std::string 	getName(void) const;
 		int					getToSign(void) const;
 		int 				getToExec(void) const;
-		int 				getIfSigned(void) const;
-		void				beSigned(Bureaucrat guy);
+		bool 				getIfSigned(void) const;
+		void				beSigned(Bureaucrat &guy);
 	
 		//--------Exception classes-------------------//
 		class GradeTooHighException : public std::exception {

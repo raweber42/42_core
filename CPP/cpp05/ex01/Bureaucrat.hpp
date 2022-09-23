@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 09:25:55 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/11 18:36:53 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/21 12:16:59 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Bureaucrat {
 		int					getGrade(void) const;
 		void				incrementGrade(void);
 		void				decrementGrade(void);
-		void				signForm(Form form);
+		void				signForm(Form &form);
 
 		
 		//--------Exception classes-------------------//

@@ -23,7 +23,7 @@ class AForm {
 	public:
 		AForm(void);
 		AForm(std::string name, int to_sign, int to_exec);
-		~AForm(void);
+		virtual ~AForm(void);
 		AForm(AForm const &src);
 
 		AForm & operator=(AForm const &rhs);

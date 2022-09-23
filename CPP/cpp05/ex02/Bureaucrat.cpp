@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 09:25:52 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/13 09:23:56 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/23 07:59:56 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void Bureaucrat::decrementGrade(void) {
 		this->_grade++;
 }
 
-void Bureaucrat::signForm(Form form) {
+void Bureaucrat::signForm(AForm &form) {
 	
 	try {
 		form.beSigned(*this);
@@ -99,6 +99,16 @@ void Bureaucrat::signForm(Form form) {
 		return ;
 	}
 	
-	std::cout << this->getName() << " signed " << form.getName() << std::endl;
+	std::cout << this->getName() << " signed " << form.getName() << std::endl;	
+}
+
+void Bureaucrat::executeForm(AForm const & form) {
 	
+	try {
+		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName() << std::endl;
+	}
+	catch (const std::exception &e) {
+		std::cerr << "Execution by " << this->_name << " failed with message: "<< e.what() << std::endl;
+	}
 }

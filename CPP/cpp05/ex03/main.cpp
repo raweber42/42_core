@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 09:25:57 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/13 19:15:42 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/23 08:17:41 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,17 @@ int main(void)
 		Intern someRandomIntern;
 		AForm* rrf;
 		rrf = someRandomIntern.makeForm("ShrubberyCreationForm", "Guillaume");
+		std::cout << *rrf << std::endl << std::endl;
+		delete rrf;
 		rrf = someRandomIntern.makeForm("PresidentialPardonForm", "Guillaume");
+		std::cout << *rrf << std::endl << std::endl;
+		delete rrf;
 		rrf = someRandomIntern.makeForm("RobotomyRequestForm", "Guillaume");
+		std::cout << *rrf << std::endl << std::endl;
+		delete rrf;
 		rrf = someRandomIntern.makeForm("non-existent", "Guillaume");
-
+		std::cout << std::endl;
+		std::cout << "\x1B[34m" << "--------------------------SECOND MAIN---------------------------\n" << std::endl;
 	}
 	{
 	Bureaucrat ralf("Ralf", 150);
@@ -75,6 +82,7 @@ int main(void)
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout << std::endl;
+	delete shrubbery;
 
 
 	//---------------------PRESIDENTIAL PARDON-----------------------------------------//
@@ -112,6 +120,7 @@ int main(void)
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout << std::endl;
+	delete presidential;
 
 	//---------------------ROBOTOMY-----------------------------------------//
 	std::cout << "-------------------------------------------------------------------------" << std::endl;	
@@ -149,6 +158,7 @@ int main(void)
 	catch (const std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}
-	std::cout << std::endl;
+	std::cout << "\x1B[0m" << std::endl;
+	delete robotomy;
 	}
 }

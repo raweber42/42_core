@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 17:35:37 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/13 09:21:24 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/21 12:17:50 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 //--------------CONSTRUCTORS/DESTRUCTOR------------------//
 
-Form::Form(void) : _name("DEFAULT FORM"), _grade_to_sign(150), _grade_to_exec(150), _signed(0) {
+Form::Form(void) : _name("DEFAULT FORM"), _grade_to_sign(150), _grade_to_exec(150), _signed(false) {
 	
 	std::cout << "Form default constructor called" << std::endl;
 }
 
-Form::Form(std::string name, int to_sign, int to_exec) : _name(name), _grade_to_sign(to_sign), _grade_to_exec(to_exec), _signed(0) {
+Form::Form(std::string name, int to_sign, int to_exec) : _name(name), _grade_to_sign(to_sign), _grade_to_exec(to_exec), _signed(false) {
 	
 	if (this->_grade_to_sign < 1 || this->_grade_to_exec < 1)
 		throw Form::GradeTooHighException();
@@ -33,7 +33,7 @@ Form::~Form(void) {
 	// std::cout << "Form destructor called" << std::endl;
 }
 
-Form::Form(Form const &src) : _name(src._name), _grade_to_sign(src._grade_to_sign), _grade_to_exec(src._grade_to_exec), _signed(0) {
+Form::Form(Form const &src) : _name(src._name), _grade_to_sign(src._grade_to_sign), _grade_to_exec(src._grade_to_exec), _signed(false) {
 	
 	*this = src;
 	// std::cout << "Form copy constructor called" << std::endl;
@@ -56,17 +56,16 @@ int Form::getToExec(void) const {
 	return(this->_grade_to_exec);
 }
 
-int Form::getIfSigned(void) const {
+bool Form::getIfSigned(void) const {
 
 	return (this->_signed);
 }
 
-void Form::beSigned(Bureaucrat guy) {
+void Form::beSigned(Bureaucrat &guy) {
 
 	if (guy.getGrade() > this->getToSign())
 		throw Form::GradeTooLowException();
-	else
-		this->_signed = true;
+	this->_signed = true;
 }
 
 

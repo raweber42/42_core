@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 09:25:57 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/11 17:32:40 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/21 12:04:42 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,11 @@ int main(void)
 	}
 	std::cout << "Marshall now has the grade: " << marshall.getGrade() << "\n" << std::endl;
 
+	std::cout << "\nPRINT WITH OPERATOR OVERLOAD" << std::endl;
+	std::cout << ted << std::endl;
+	std::cout << lilly << std::endl;
+	std::cout << marshall << std::endl;
+	std::cout << std::endl;
+	
 	return (0);
 }

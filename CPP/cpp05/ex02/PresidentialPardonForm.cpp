@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 15:01:14 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/13 15:42:12 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/21 12:18:58 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ PresidentialPardonForm::~PresidentialPardonForm(void) {
 	
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &src) {
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &src) : AForm() {
 	
 	*this = src;
 }

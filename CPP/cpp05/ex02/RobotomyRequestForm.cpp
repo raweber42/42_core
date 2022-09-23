@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 15:01:14 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/13 15:42:23 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/21 12:18:46 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ RobotomyRequestForm::~RobotomyRequestForm(void) {
 	
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &src) {
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &src) : AForm() {
 	
 	*this = src;
 }

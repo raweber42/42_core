@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 09:25:52 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/13 15:52:23 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/21 12:17:43 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void Bureaucrat::decrementGrade(void) {
 		this->_grade++;
 }
 
-void Bureaucrat::signForm(AForm &form) {
+void Bureaucrat::signForm(Form &form) {
 	
 	try {
 		form.beSigned(*this);
@@ -98,17 +98,5 @@ void Bureaucrat::signForm(AForm &form) {
 		std::cout << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
 		return ;
 	}
-	
-	std::cout << this->getName() << " signed " << form.getName() << std::endl;	
-}
-
-void Bureaucrat::executeForm(AForm const & form) {
-	
-	try {
-		form.execute(*this);
-	}
-	catch (const std::exception &e) {
-		std::cerr << "Execution by the Bureaucrat failed with exception: "<< e.what() << std::endl;
-	}
-	std::cout << this->getName() << " executed " << form.getName() << std::endl;
+	std::cout << this->getName() << " signed " << form.getName() << std::endl;
 }
