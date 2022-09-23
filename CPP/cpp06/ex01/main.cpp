@@ -6,11 +6,12 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 14:41:15 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/15 15:18:00 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/23 10:05:41 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <stdint.h>
 #include "structure.hpp"
 
 Data* deserialize(uintptr_t raw) {
@@ -41,10 +42,14 @@ int main(void) {
 	std::cout << "deserialized = " << deserialized << std::endl;
 
 	std::cout << "\nPRINT ADDRESSES" << std::endl;
-	std::cout << "Print first attribute of struct: " << (*deserialized).attr1 << std::endl;
-	std::cout << "Print second attribute of struct: " << (*deserialized).attr2 << std::endl; 
+	
+	std::cout << "Print first attribute of struct: " << example.attr1 << std::endl;
+	std::cout << "Print second attribute of struct: " << example.attr2 << std::endl << std::endl;
 
 	std::cout << "Try the first attribute with reinterpret cast from 'serialized': " << (reinterpret_cast<Data *>(serialized))->attr1 << std::endl;
-	std::cout << "Try the second attribute with reinterpret cast from 'serialized': " << (reinterpret_cast<Data *>(serialized))->attr2 << std::endl;
+	std::cout << "Try the second attribute with reinterpret cast from 'serialized': " << (reinterpret_cast<Data *>(serialized))->attr2 << std::endl << std::endl;
+	
+	std::cout << "Print first attribute of deserialized struct: " << (*deserialized).attr1 << std::endl;
+	std::cout << "Print second attribute of deserialized struct: " << (*deserialized).attr2 << std::endl; 
 	std::cout << std::endl;
 }

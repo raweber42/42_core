@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 15:20:41 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/15 16:07:46 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/23 10:12:28 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,21 @@ void	identify(Base& p) {
 		ref = dynamic_cast<A &>(p);
 		std::cout << "Type of reference is <A>" << std::endl;
 	}
-	catch (std::bad_cast &bc) {
+	catch (std::exception &bc) {
 		
 	}
 	try {
 		ref = dynamic_cast<B &>(p);
 		std::cout << "Type of reference is <B>" << std::endl;
 	}
-	catch (std::bad_cast &bc) {
+	catch (std::exception &bc) {
 		
 	}
 	try {
 		ref = dynamic_cast<C &>(p);
 		std::cout << "Type of reference is <C>" << std::endl;
 	}
-	catch (std::bad_cast &bc) {
+	catch (std::exception &bc) {
 		
 	}
 }

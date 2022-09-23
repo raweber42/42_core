@@ -6,12 +6,16 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 09:12:07 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/15 11:31:56 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/23 10:01:59 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <limits>
+#include <cstdlib>
+#include <cmath>
+#include <climits>
+#include <cstring>
 
 int handlePseudo(std::string input)
 {
@@ -28,9 +32,22 @@ int handlePseudo(std::string input)
 		//------------------------PRINT INT//----------------
 		std::cout << "int: Non displayable" << std::endl;
 		//------------------------PRINT FLOAT------------------------
-		std::cout << "float: " << ((i < 4)?(pseudoArr[i]):("Undefined behavior")) << std::endl;
+		std::string toPrint;
+		if (i < 4)
+			toPrint = pseudoArr[i];
+		else if (i == 7)
+			toPrint = "nanf";
+		else
+			toPrint = "Undefined behavior";
+		std::cout << "float: " << toPrint << std::endl;
 		//------------------------PRINT DOUBLE------------------------
-		std::cout << "double: " << ((i >= 4)?(pseudoArr[i]):("Undefined behavior")) << std::endl;
+		if (i > 4)
+			toPrint = pseudoArr[i];
+		else if (i == 3)
+			toPrint = "nan";
+		else
+			toPrint = "Undefined behavior";
+		std::cout << "double: " << toPrint << std::endl;
 		return (1);
 	}
 	return (0);
@@ -60,21 +77,19 @@ int main(int argc, char **argv)
 	}
 	
 	std::string char_string(argv[1]);
-	double		double_value = 0.0;
-	float		float_value = 0.0f;
-	char *		endptr_d;
-	char *		endptr_f;
-
-	// std::cout << static_cast<int>(argv[1][0]) << std::endl;
+	double		double_value;
+	float		float_value;
+	char **		endptr;
 	
 	// char, int, float or double
 	if (handlePseudo(char_string))
 		return (0);
-	double_value = std::strtod(argv[1], &endptr_d);
-	float_value = std::strtof(argv[1], &endptr_f);
-	if (isdigit(char_string[0]) || char_string.length() > 1)
+	if (isdigit(char_string[0]) || char_string.size() > 1)
 	{
-		if (*endptr_d || *endptr_f)
+		endptr = new char*;
+		double_value = std::strtod(argv[1], endptr);
+		float_value = std::strtof(argv[1], endptr);
+		if (**endptr && (strlen(*endptr) != 1 || **endptr != 'f'))
 		{
 			std::cout << "Error: Invalid input. Only one of: char, int, float or double!" << std::endl;
 			return (1);
@@ -91,12 +106,12 @@ int main(int argc, char **argv)
 	else
 		std::cout << "char: Non displayable" << std::endl;
 	//------------------------PRINT INT//----------------
-	if (double_value > INT32_MAX || double_value < INT32_MIN)
+	if (double_value > INT_MAX || double_value < INT_MIN)
 		std::cout << "int: Non displayable (overflow)" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(double_value) << std::endl;
 	//------------------------PRINT FLOAT------------------------
-	if (double_value > std::numeric_limits<float>::max() || double_value < std::numeric_limits<float>::min())
+	if (double_value > std::numeric_limits<float>::max() || double_value < -std::numeric_limits<float>::max())
 		std::cout << "float: Non displayable (overflow)" << std::endl;
 	else
 		std::cout << "float: " << static_cast<float>(double_value) << (floorf(double_value)==double_value?".0f":"f")<< std::endl;

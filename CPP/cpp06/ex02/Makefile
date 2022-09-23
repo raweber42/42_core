@@ -7,7 +7,7 @@ SRC_DIR = src/
 
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -Wshadow
-SRC =	main.cpp base.cpp
+SRC =	main.cpp Base.cpp
 
 .PHONY: all clean fclean re
 
