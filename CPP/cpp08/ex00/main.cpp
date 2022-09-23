@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 08:29:18 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/17 15:17:40 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/23 12:17:35 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,5 +132,3 @@ int main(void) {
 
 	return (0);
 }
-
-// how to print the right index?

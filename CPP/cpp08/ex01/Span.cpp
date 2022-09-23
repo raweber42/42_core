@@ -6,11 +6,15 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 15:22:48 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/17 16:58:48 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/23 12:21:05 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <climits>
+#include <cmath>
+#include <algorithm>
+
 
 //--------------CONSTRUCTORS/DESTRUCTOR------------------//
 

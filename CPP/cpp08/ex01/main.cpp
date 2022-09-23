@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 15:22:58 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/17 17:17:46 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/23 12:23:01 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int main(void) {
 		std::cerr << e.what() << std::endl;
 	}
 	
-	std::cout << "\n### ADD 100,000 VALUES TO SPAN ###" << std::endl;
+	std::cout << "\n### ADD 100,000 VALUES OF '100' TO SPAN ###" << std::endl;
 	std::vector<int> toInsert(100000, 100);
 	testing.addMultiple(toInsert);
 	std::cout << "Array size is now: " << testing.getSize() << std::endl;
