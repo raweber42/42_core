@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 07:55:07 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/10 09:34:50 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/25 11:42:31 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,8 @@ Brain::~Brain(void) {
 
 Brain & Brain::operator=(Brain const &rhs) {
 
-	std::copy(rhs._ideas, rhs._ideas + 100, this->_ideas);
+	for (int i = 0; i < 100; i++)
+		this->_ideas[i] = rhs._ideas[i];
 	return (*this);
 }
 
@@ -141,4 +142,9 @@ Brain & Brain::operator=(Brain const &rhs) {
 std::string	Brain::getIdea(int i) const {
 
 	return(this->_ideas[i]);
+}
+
+void Brain::setIdea(int i, std::string new_idea) {
+
+	this->_ideas[i] = new_idea;
 }

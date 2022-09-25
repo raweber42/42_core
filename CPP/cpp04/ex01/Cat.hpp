@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:36:20 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/10 09:36:16 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/25 11:05:59 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class Cat : public Animal {
 		void		setType(void);
 		void		makeSound(void) const;
 		std::string	getIdea(int i) const;
+		void		setIdea(int i, std::string new_idea);
 
 	private:
 		Brain *brain;

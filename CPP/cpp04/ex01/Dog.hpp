@@ -6,7 +6,7 @@
 /*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:36:25 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/10 09:55:00 by raweber          ###   ########.fr       */
+/*   Updated: 2022/09/25 11:25:05 by raweber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ class Dog : public Animal {
 		void		setType(void);
 		void		makeSound(void) const;
 		std::string	getIdea(int i) const;
+		void setIdea(int i, std::string new_idea);
+
 
 	private:
 		Brain *brain;
