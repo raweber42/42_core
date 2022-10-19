@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raweber <raweber@student.42wolfsburg.de    +#+  +:+       +#+        */
+/*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 15:22:48 by raweber           #+#    #+#             */
-/*   Updated: 2022/09/23 12:21:05 by raweber          ###   ########.fr       */
+/*   Updated: 2022/10/19 13:17:55 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include <climits>
-#include <cmath>
 #include <algorithm>
 
 
@@ -73,7 +72,7 @@ long Span::shortestSpan(void) {
 	std::sort(this->_arr.begin(), this->_arr.end());
 	for (int i = 0; i < this->_cur_length - 1; i++)
 	{
-		if (abs(this->_arr[i + 1] - this->_arr[i]) < shortest)
+		if ((this->_arr[i + 1] - this->_arr[i]) < shortest)
 			shortest = this->_arr[i + 1] - this->_arr[i];
 	}
 	return (shortest);
@@ -84,7 +83,7 @@ long Span::longestSpan(void) {
 	if (this->_cur_length <= 1)
 		throw NoSpanPossibleException();
 	std::sort(this->_arr.begin(), this->_arr.end());
-	return (abs(this->_arr[this->_cur_length - 1] - this->_arr[0]));	
+	return (this->_arr[this->_cur_length - 1] - this->_arr[0]);	
 }
 
 void Span::addMultiple(std::vector<int> toInsert) {
